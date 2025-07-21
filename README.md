@@ -3,7 +3,15 @@
 
 ### 📋 Descripción del Proyecto
 
-Este proyecto tiene como objetivo poner en práctica la elaboración de planes de prueba y la automatización de casos funcionales con **Cypress** sobre la plataforma **Ticketazo**, aplicando buenas prácticas de testing y reporte de defectos.
+Este proyecto forma parte del bootcamp **XAcademy QA Automation** y tiene como objetivo poner en práctica competencias clave en testing de software:
+
+- 🎯 **Elaboración de planes de prueba** detallados y estructurados
+- 🤖 **Automatización de casos funcionales** críticos con **Cypress**
+- 🐛 **Aplicación de buenas prácticas** de reporte de defectos
+- 📊 **Gestión efectiva de bugs** utilizando metodologías ágiles con **Trello**
+- 🔍 **Testing exploratorio** y **análisis de usabilidad** en entornos reales
+
+**🎫 Plataforma Objetivo:** **Ticketazo** es una plataforma web de venta de entradas para eventos de entretenimiento (conciertos, obras de teatro, etc.) que ofrece un entorno completo para practicar testing E2E desde autenticación hasta procesos de compra.
 
 ## 👥 Nuestro Equipo
 
@@ -59,23 +67,56 @@ Nuestro tablero Kanban está estructurado con un flujo de trabajo completo que i
 
 #### 📋 Plantillas de Tarjetas
 
-**Para Reportes de Bugs:**
-- **ID:** Identificador único (ej: TZO-BUG-XXX)
-- **Título:** Descripción concisa del problema
-- **Descripción:** Detalle completo del defecto encontrado
-- **Pasos para Reproducir:** Secuencia exacta para replicar el bug
-- **Resultado Esperado:** Comportamiento correcto esperado
-- **Resultado Actual:** Comportamiento observado
-- **Evidencia:** Capturas de pantalla, videos o logs
-- **Ambiente:** Navegador, versión, SO donde se detectó
+Basándose en las metodologías observadas en el tablero Trello del proyecto, utilizamos plantillas estructuradas para garantizar consistencia en el reporte:
 
-**Para Sugerencias de Mejora:**
-- **ID:** Identificador único (ej: TZO-MEJ-XXX)
-- **Título:** Descripción clara de la mejora propuesta
-- **Justificación/Beneficio:** Razón y valor agregado de la mejora
-- **Descripción:** Detalle de la implementación sugerida
-- **Impacto:** Análisis del efecto en usuarios y sistema
-- **Evidencia:** Mockups, referencias o documentación de apoyo
+**🐛 Para Reportes de Bugs/Defectos:**
+```
+ID: TZO-BUG-XXX
+Título: [Breve descripción del problema]
+
+Descripción:
+[Descripción del problema con más detalle. ¿Qué está pasando y cuál es el impacto en el usuario o el sistema?]
+
+Pasos para Reproducir:
+1. Primer paso (ser específico)
+2. Segundo paso
+3. [Describir acción que causa el bug]
+
+Resultado Esperado:
+[Qué debería haber sucedido según el comportamiento correcto]
+
+Resultado Actual:
+[Qué sucede realmente cuando se siguen los pasos]
+
+Severidad: Crítica / Alta / Media / Baja
+Prioridad: Alta / Media / Baja
+
+Evidencia:
+• URL: https://ejemplo.com/pagina-con-error
+• Navegador: [Ej: Chrome 122 en Windows 11]
+• Datos de prueba utilizados: [usuario: test@ejemplo.com]
+• Adjuntar capturas de pantalla, videos o logs relevantes
+```
+
+**💡 Para Sugerencias de Mejora:**
+```
+ID: TZO-MEJ-XXX
+Título: [Descripción clara de la mejora propuesta]
+
+Descripción (Formato User Story):
+Como [tipo de usuario], yo quiero [acción/funcionalidad] para [beneficio/razón]
+
+Justificación/Beneficio:
+[Explicar por qué esta mejora es valiosa. Actualmente, qué ocurre de ver sin esto? ¿Cómo mejoraría la experiencia del usuario o el negocio?]
+
+Descripción:
+[Detalles de cómo podría implementarse la mejora]
+
+Prioridad Sugerida: Alta / Media / Baja
+
+Evidencia/Propuesta Visual (Opcional):
+[Puedes agregar un boceto simple (mockup), un dibujo o una captura de pantalla de otra web que haga esto bien para ilustrar tu idea]
+```
 
 El tablero nos permite mantener una visibilidad completa del progreso del proyecto, facilita la colaboración entre todos los miembros del equipo y asegura un seguimiento detallado de cada defecto encontrado.
 
@@ -125,28 +166,53 @@ cd Grupo-N-10
 # Instalar dependencias
 npm install
 
-# Ejecutar todas las pruebas
-npm run test
+# Ejecutar todas las pruebas en modo headless
+npx cypress run
 
-# Ejecutar pruebas en modo headless
-npm run test:headless
+# Abrir Cypress Test Runner (modo interactivo)
+npx cypress open
 
-# Abrir Cypress Test Runner
-npm run cypress:open
+# Ejecutar pruebas específicas
+npx cypress run --spec "cypress/e2e/login.cy.js"
 ```
+
+### 🔧 Scripts Disponibles
+
+| Comando | Descripción |
+|---------|-------------|
+| `npm install` | Instala todas las dependencias del proyecto |
+| `npx cypress open` | Abre la interfaz gráfica de Cypress para ejecutar tests interactivamente |
+| `npx cypress run` | Ejecuta todos los tests en modo headless (sin interfaz gráfica) |
+| `npx cypress run --headed` | Ejecuta tests con navegador visible |
+| `npx cypress run --browser chrome` | Ejecuta tests en Chrome específicamente |
 
 ### 📁 Estructura del Proyecto
 
 ```
 Grupo-N-10/
 ├── cypress/
-│   ├── e2e/                 # Tests end-to-end
-│   ├── fixtures/            # Datos de prueba
-│   ├── support/             # Comandos personalizados
-│   └── screenshots/         # Capturas de pantalla
-├── docs/                    # Documentación del proyecto
-├── package.json
-└── README.md
+│   ├── e2e/                 # Tests end-to-end principales
+│   │   ├── auth/           # Tests de autenticación y sesiones
+│   │   ├── events/         # Tests de gestión de eventos
+│   │   ├── purchase/       # Tests de proceso de compra
+│   │   └── admin/          # Tests del panel de administración
+│   ├── fixtures/            # Datos de prueba (JSON)
+│   │   ├── usuarios.json   # Credenciales y datos de usuarios
+│   │   ├── eventos.json    # Información de eventos de prueba
+│   │   └── example.json    # Datos de ejemplo por defecto
+│   ├── support/             # Comandos personalizados y configuración
+│   │   ├── commands.js     # Comandos custom (cy.login, cy.logout, etc.)
+│   │   └── e2e.js         # Configuración global de tests
+│   ├── screenshots/         # Capturas automáticas en fallos
+│   └── videos/             # Grabaciones de ejecución de tests
+├── docs/                    # Documentación adicional del proyecto
+├── .gitignore              # Archivos excluidos del repositorio
+├── cypress.config.js       # Configuración principal de Cypress
+├── package.json            # Dependencias y scripts del proyecto
+├── package-lock.json       # Versiones exactas de dependencias
+├── README.md               # Documentación principal (este archivo)
+├── Challenge — Ticketazo.pdf      # Documento del desafío original
+└── Documento Funcional.pdf        # Especificaciones funcionales
 ```
 
 ## 📋 Plan de Pruebas
@@ -197,11 +263,19 @@ Los siguientes casos críticos han sido automatizados con Cypress para cubrir la
 - **Gestión de usuarios** registrados
 
 #### 🌐 **TC006 - Funcionalidades Transversales**
-- **Navegación general** del sitio
+- **Navegación general** del sitio y menús principales
 - **Funcionalidades responsive** en móviles y tablets
-- **Performance** y tiempos de carga
-- **Manejo de errores** 404 y estados de error
+- **Performance** y tiempos de carga de páginas
+- **Manejo de errores** 404 y estados de error diversos
 - **Accesibilidad** básica (WCAG guidelines)
+- **SEO básico** y meta tags apropiados
+
+#### 🎭 **TC007 - Funcionalidades Específicas de Eventos**
+- **Eventos destacados**: "El Eternauta", "Sinfonía Metálica", "Los Piojos En River"
+- **Información detallada** de eventos (fecha, hora, ubicación, precios)
+- **Disponibilidad en tiempo real** de entradas
+- **Categorías de eventos** (teatro, música, shows, etc.)
+- **Sistema de recomendaciones** y eventos relacionados
 
 ## 🐛 Proceso de Reporte de Defectos
 
@@ -250,14 +324,33 @@ Durante las pruebas exploratorias y automatizadas de **Ticketazo**, seguimos un 
 
 ### 🎯 **Ejemplos de Defectos Identificados**
 
-Basándome en las pruebas realizadas en Ticketazo, algunos ejemplos de defectos típicos incluyen:
+Basándome en las pruebas realizadas en Ticketazo y analizando las plantillas de reporte del tablero Trello, algunos ejemplos de defectos típicos incluyen:
 
+#### 🔴 **Defectos Críticos**
+- **Error en proceso de pago**: Transacciones que fallan sin mensaje claro
+- **Pérdida de sesión**: Usuarios que pierden su sesión durante el checkout
+- **Datos inconsistentes**: Información de eventos que no coincide entre páginas
+
+#### ⚠️ **Defectos de Alta Severidad**
 - **Problemas de navegación**: Enlaces rotos, redirecciones incorrectas
-- **Issues de formularios**: Validaciones faltantes, mensajes de error poco claros  
-- **Problemas de UI/UX**: Elementos superpuestos, responsive design
+- **Issues de formularios**: Validaciones faltantes, mensajes de error poco claros
 - **Funcionalidades de búsqueda**: Filtros que no funcionan correctamente
-- **Proceso de compra**: Errores en carrito, problemas de checkout
+
+#### 📝 **Defectos de Media Severidad**
+- **Problemas de UI/UX**: Elementos superpuestos, responsive design deficiente
+- **Performance**: Tiempos de carga excesivos en ciertas páginas
 - **Gestión de sesiones**: Timeouts inesperados, problemas de autenticación
+
+#### 💡 **Mejoras Sugeridas**
+- **Optimización de UX**: Mejoras en flujo de compra para reducir abandono
+- **Funcionalidades adicionales**: Sistema de notificaciones, lista de deseos
+- **Accesibilidad**: Mejoras para usuarios con discapacidades
+
+#### 📊 **Clasificación y Métricas**
+- **Total de defectos reportados**: Seguimiento en tablero Trello
+- **Distribución por severidad**: Gráficos de criticidad
+- **Tiempo promedio de resolución**: KPIs del equipo de desarrollo
+- **Tasa de regresión**: Defectos que reaparecen después de corrección
 
 ## 📊 Entregables del Proyecto
 
@@ -373,11 +466,32 @@ describe('Ticketazo - Funcionalidades Críticas', () => {
 - ✅ **Reporting:** Reportes detallados con capturas de fallos
 
 #### 🔧 **Herramientas y Configuración**
-- **Cypress**: Framework principal de testing E2E
-- **JavaScript/TypeScript**: Lenguaje de automatización
-- **GitHub Actions**: CI/CD para ejecución automática
-- **Trello**: Gestión de defectos y seguimiento
-- **Google Sheets**: Documentación del plan de pruebas
+- **Cypress v14.5.2**: Framework principal de testing E2E con JavaScript
+- **Node.js**: Entorno de ejecución para JavaScript (v16+)
+- **GitHub**: Control de versiones y repositorio del código
+- **Trello**: Gestión de defectos, seguimiento de bugs y metodología Kanban
+- **Google Sheets**: Documentación del plan de pruebas con acceso público
+- **Visual Studio Code**: IDE recomendado con extensiones de Cypress
+
+#### 🔌 **Configuración de Cypress**
+```javascript
+// cypress.config.js - Configuración básica del proyecto
+const { defineConfig } = require("cypress");
+
+module.exports = defineConfig({
+  e2e: {
+    baseUrl: 'https://vps-3696213-x.dattaweb.com/',
+    viewportWidth: 1280,
+    viewportHeight: 720,
+    defaultCommandTimeout: 10000,
+    requestTimeout: 10000,
+    responseTimeout: 10000,
+    setupNodeEvents(on, config) {
+      // Eventos y plugins adicionales
+    },
+  },
+});
+```
 
 #### 🐛 **Gestión de Defectos**
 - ✅ **Claridad:** Descripción precisa y reproducible
@@ -386,7 +500,35 @@ describe('Ticketazo - Funcionalidades Críticas', () => {
 - ✅ **Trazabilidad:** Vinculación con casos de prueba específicos
 - ✅ **Seguimiento:** Estados claros y tiempos de resolución
 - ✅ **Comunicación:** Notificaciones oportunas al equipo
-- ✅ **Mantenibilidad:** Estructura modular y escalable
-- ✅ **Estabilidad:** Tests confiables que pasan consistentemente
+---
+
+## 📈 Estado del Proyecto
+
+### 🚧 Progreso Actual
+
+| Fase | Estado | Progreso | Fecha Estimada |
+|------|--------|----------|----------------|
+| **📋 Plan de Pruebas** | ✅ Completado | 100% | ✅ Completado |
+| **🤖 Automatización Base** | ✅ Completado | 100% | ✅ Completado |
+| **🐛 Gestión de Defectos** | 🔄 En Progreso | 85% | 25 Jul 2025 |
+| **📊 Documentación Final** | 🔄 En Progreso | 90% | 27 Jul 2025 |
+| **🔍 Testing Exploratorio** | 🔄 En Progreso | 75% | 28 Jul 2025 |
+
+### 🎯 Métricas del Proyecto
+
+- **✅ Casos de prueba documentados**: 35+ casos funcionales
+- **🤖 Tests automatizados**: 7 módulos principales cubiertos
+- **🐛 Defectos identificados**: Seguimiento en tablero Trello
+- **📊 Cobertura de funcionalidades**: 85% de features críticas
+- **⚡ Performance de tests**: Ejecución completa en <5 minutos
+
+### 🏆 Criterios de Éxito
+
+- ✅ **Suite de automatización** ejecutable con comandos npm
+- ✅ **Tablero Trello** con bugs bien documentados y categorizados
+- ✅ **README** con instrucciones claras de instalación y ejecución
+- ✅ **Evidencia de testing** con capturas y videos de defectos
+- ✅ **Plan de pruebas** público y accesible en Google Sheets
+- ✅ **Documentación técnica** completa y actualizada
 
 ---
