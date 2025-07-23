@@ -23,7 +23,7 @@ Este trabajo fue posible gracias al trabajo colaborativo de nuestro equipo:
 | Integrante 2 | ``           | [![GitHub Badge](https://img.shields.io/badge/GitHub-121011?style=for-the-badge&logo=github&logoColor=white)](https://github.com/) |
 | Integrante 3 | ``           | [![GitHub Badge](https://img.shields.io/badge/GitHub-121011?style=for-the-badge&logo=github&logoColor=white)](https://github.com/) |
 | Integrante 4 | ``           | [![GitHub Badge](https://img.shields.io/badge/GitHub-121011?style=for-the-badge&logo=github&logoColor=white)](https://github.com/) |
-| Integrante 5 | ``           | [![GitHub Badge](https://img.shields.io/badge/GitHub-121011?style=for-the-badge&logo=github&logoColor=white)](https://github.com/) |
+| Maria Molina | `merymolina`          | [![GitHub Badge](https://img.shields.io/badge/GitHub-121011?style=for-the-badge&logo=github&logoColor=white)](https://github.com/merymolina) |
 | Rodrigo Nicolás Muñoz | `D3PA`           | [![GitHub Badge](https://img.shields.io/badge/GitHub-121011?style=for-the-badge&logo=github&logoColor=white)](https://github.com/D3PA) |
 | Roberto Raúl Forte | `robertoraulforte`           | [![GitHub Badge](https://img.shields.io/badge/GitHub-121011?style=for-the-badge&logo=github&logoColor=white)](https://github.com/robertoraulforte) |
 | Juan Diego González Antoniazzi | `JDGA1997`           | [![GitHub Badge](https://img.shields.io/badge/GitHub-121011?style=for-the-badge&logo=github&logoColor=white)](https://github.com/JDGA1997) |
